@@ -5,9 +5,8 @@ import android.view.Menu;
 import android.view.View;
 
 import com.codepath.oauth.OAuthLoginActionBarActivity;
-import com.codepath.oauth.OAuthLoginActivity;
 
-public class LoginActivity extends OAuthLoginActionBarActivity<RestClient> {
+public class LoginActivity extends OAuthLoginActionBarActivity<BirdieClient> {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
