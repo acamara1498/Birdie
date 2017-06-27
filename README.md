@@ -102,10 +102,10 @@ Check out [Android Async HTTP Docs](http://loopj.com/android-async-http/) for mo
 ### 2. Define the Models
 
 In the `src/com.codepath.apps.restclienttemplate.models`, create the models that represent the key data to be parsed and persisted within your application.
-For example, if you were connecting to Twitter, you would want a Tweet model as follows:
+For example, if you were connecting to Twitter, you would want a com.codepath.apps.restclienttemplate.models.Tweet model as follows:
 
 ```java
-// models/Tweet.java
+// models/com.codepath.apps.restclienttemplate.models.Tweet.java
 package com.codepath.apps.restclienttemplate.models;
 
 import org.json.JSONException;
@@ -119,7 +119,7 @@ import com.raizlabs.android.dbflow.annotation.Table;
 
 
 @Table(database = MyDatabase.class)
-public class Tweet extends BaseModel {
+public class com.codepath.apps.restclienttemplate.models.Tweet extends BaseModel {
   // Define database columns and associated fields
   @PrimaryKey @Column
   Long id;
@@ -141,13 +141,13 @@ check out the [DBFlow Wiki](https://github.com/Raizlabs/DBFlow/blob/master/usage
 In addition, we can also add functions into the model to support parsing JSON attributes in order to instantiate the model based on API data. This might look like:
 
 ```java
-// models/Tweet.java
+// models/com.codepath.apps.restclienttemplate.models.Tweet.java
 @Table(database = MyDatabase.class)
-public class Tweet extends BaseModel {
+public class com.codepath.apps.restclienttemplate.models.Tweet extends BaseModel {
   // ...existing code from above...
 
   // Add a constructor that creates an object from the JSON response
-  public Tweet(JSONObject object){
+  public com.codepath.apps.restclienttemplate.models.Tweet(JSONObject object){
     super();
 
     try {
@@ -160,8 +160,8 @@ public class Tweet extends BaseModel {
     }
   }
 
-  public static ArrayList<Tweet> fromJson(JSONArray jsonArray) {
-    ArrayList<Tweet> tweets = new ArrayList<Tweet>(jsonArray.length());
+  public static ArrayList<com.codepath.apps.restclienttemplate.models.Tweet> fromJson(JSONArray jsonArray) {
+    ArrayList<com.codepath.apps.restclienttemplate.models.Tweet> tweets = new ArrayList<com.codepath.apps.restclienttemplate.models.Tweet>(jsonArray.length());
 
     for (int i=0; i < jsonArray.length(); i++) {
         JSONObject tweetJson = null;
@@ -172,7 +172,7 @@ public class Tweet extends BaseModel {
             continue;
         }
 
-        Tweet tweet = new Tweet(tweetJson);
+        com.codepath.apps.restclienttemplate.models.Tweet tweet = new com.codepath.apps.restclienttemplate.models.Tweet(tweetJson);
         tweet.save();
         tweets.add(tweet);
     }
@@ -214,13 +214,13 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 You can then load the data into your models from a `JSONArray` using:
 
 ```java
-ArrayList<Tweet> tweets = Tweet.fromJSON(jsonArray);
+ArrayList<com.codepath.apps.restclienttemplate.models.Tweet> tweets = com.codepath.apps.restclienttemplate.models.Tweet.fromJSON(jsonArray);
 ```
 
 or load the data from a single `JSONObject` with:
 
 ```java
-Tweet t = new Tweet(json);
+com.codepath.apps.restclienttemplate.models.Tweet t = new com.codepath.apps.restclienttemplate.models.Tweet(json);
 // t.body = "foo"
 t.save();
 ```

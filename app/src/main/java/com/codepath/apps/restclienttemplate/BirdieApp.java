@@ -12,11 +12,11 @@ import android.content.Context;
  * including the image cache in memory and on disk. This also adds a singleton
  * for accessing the relevant rest client.
  *
- *     BirdieClient client = BirdieApplication.getRestClient();
+ *     BirdieClient client = BirdieApp.getRestClient();
  *     // use client to send requests to API
  *
  */
-public class BirdieApplication extends Application {
+public class BirdieApp extends Application {
 	private static Context context;
 
 	@Override
@@ -26,10 +26,10 @@ public class BirdieApplication extends Application {
 		FlowManager.init(new FlowConfig.Builder(this).build());
 		FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
 
-		BirdieApplication.context = this;
+		BirdieApp.context = this;
 	}
 
 	public static BirdieClient getRestClient() {
-		return (BirdieClient) BirdieClient.getInstance(BirdieClient.class, BirdieApplication.context);
+		return (BirdieClient) BirdieClient.getInstance(BirdieClient.class, BirdieApp.context);
 	}
 }
