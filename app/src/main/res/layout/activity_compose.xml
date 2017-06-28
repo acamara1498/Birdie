@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codepath.apps.restclienttemplate.models.ComposeActivity"
+    tools:context="com.codepath.apps.restclienttemplate.ComposeActivity"
     android:theme="@style/NoAction">
 
 
@@ -24,7 +24,7 @@
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/ibExit"
         android:layout_alignParentEnd="true"
-        app:srcCompat="@android:color/background_dark" />
+        app:srcCompat="@android:color/holo_orange_dark" />
 
     <EditText
         android:id="@+id/etCompose"

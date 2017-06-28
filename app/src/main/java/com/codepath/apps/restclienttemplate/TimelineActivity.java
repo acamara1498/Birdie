@@ -8,8 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.codepath.apps.restclienttemplate.models.ComposeActivity;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -58,6 +58,18 @@ public class TimelineActivity extends AppCompatActivity {
         Intent intent = new Intent (this, ComposeActivity.class);
         startActivityForResult(intent, 20);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is defined above
+        if (resultCode == 20 && requestCode == 20) {
+            // Extract name value from result extras
+            String tweet = data.getExtras().getString("tweet");
+            int code = data.getExtras().getInt("code", 0);
+            // Toast the name to display temporarily on screen
+            Toast.makeText(this, "Tweet sent!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void populateTime() {
