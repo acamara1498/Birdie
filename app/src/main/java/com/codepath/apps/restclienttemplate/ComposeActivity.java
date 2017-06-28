@@ -12,13 +12,14 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import cz.msebera.android.httpclient.Header;
 
+import static com.codepath.apps.restclienttemplate.TimelineActivity.RESULT_CODE;
 
 
 public class ComposeActivity extends AppCompatActivity {
-
     BirdieClient client;
     EditText etCompose;
 
@@ -67,9 +68,9 @@ public class ComposeActivity extends AppCompatActivity {
                 Tweet tweet;
                 try {
                     tweet = Tweet.fromJSON(response);
-                    Intent intent = new Intent(ComposeActivity.this, TimelineActivity.class);
-                    intent.putExtra("tweet", String.valueOf(tweet));
-                    setResult(20, intent);
+                    Intent intent = new Intent();
+                    intent.putExtra("tweet", Parcels.wrap(tweet));
+                    setResult(RESULT_OK, intent);
                     finish();
                 } catch (JSONException e) {
                     e.printStackTrace();

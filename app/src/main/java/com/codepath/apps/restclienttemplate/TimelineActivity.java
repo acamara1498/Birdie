@@ -16,6 +16,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class TimelineActivity extends AppCompatActivity {
 
+    public static final int REQUEST_CODE = 20;
+    public static final int RESULT_CODE = 10;
     BirdieClient client;
     TweetAdapter tweetAdapter;
     ArrayList<Tweet> tweets;
@@ -56,19 +59,24 @@ public class TimelineActivity extends AppCompatActivity {
     public void onComposeAction(MenuItem item) {
         //
         Intent intent = new Intent (this, ComposeActivity.class);
-        startActivityForResult(intent, 20);
+        startActivityForResult(intent, REQUEST_CODE);
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // REQUEST_CODE is defined above
-        if (resultCode == 20 && requestCode == 20) {
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             // Extract name value from result extras
-            String tweet = data.getExtras().getString("tweet");
-            int code = data.getExtras().getInt("code", 0);
+            Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
+
+            tweets.add(0, tweet);
+            tweetAdapter.notifyItemInserted(0);
+            rvTweets.getLayoutManager().scrollToPosition(0);
+
             // Toast the name to display temporarily on screen
             Toast.makeText(this, "Tweet sent!", Toast.LENGTH_SHORT).show();
+
         }
     }
 

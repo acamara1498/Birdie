@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> {
-    private List<Tweet> tweets;
+    public List<Tweet> tweets;
     Context context;
 
     //pass in the Tweets array in the constructor
