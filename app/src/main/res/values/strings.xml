@@ -5,5 +5,9 @@
     <string name="login_label">Log in</string>
     <string name="intent_scheme">oauth</string>
     <string name="intent_host">cprest</string>
+    <string name="user_name">User\'s Name</string>
+    <string name="body_of_tweet">Tweet body...</string>
+    <string name="screen_name">Handle</string>
+    <string name="relative_timestamp">Timestamp</string>
 
 </resources>
