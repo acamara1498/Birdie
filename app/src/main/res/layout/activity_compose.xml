@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codepath.apps.restclienttemplate.models.ComposeActivity">
+    tools:context="com.codepath.apps.restclienttemplate.models.ComposeActivity"
+    android:theme="@style/NoAction">
 
-</android.support.constraint.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/ibExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/close"
+        android:onClick="endActivity"
+        android:background="@android:color/transparent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/ibExit"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@android:color/background_dark" />
+
+    <EditText
+        android:id="@+id/etCompose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ibExit"
+        android:ems="10"
+        android:hint="What's happening?"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/etCompose"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="createBeep"
+        android:text="Beep"
+        android:textColor="@android:color/white" />
+</RelativeLayout>
+
