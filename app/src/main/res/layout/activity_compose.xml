@@ -38,14 +38,28 @@
         android:inputType="textMultiLine" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnBeep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/etCompose"
         android:background="@android:color/holo_orange_dark"
         android:onClick="createBeep"
+        android:clickable="true"
         android:text="Beep"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/tvCharCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnBeep"
+        android:layout_alignBottom="@+id/btnBeep"
+        android:layout_toStartOf="@+id/btnBeep"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:text="140"
+        android:textSize="14dp" />
 </RelativeLayout>
 

@@ -9,5 +9,6 @@
     <string name="body_of_tweet">Tweet body...</string>
     <string name="screen_name">Handle</string>
     <string name="relative_timestamp">Timestamp</string>
+    <string name="char_count">Count</string>
 
 </resources>

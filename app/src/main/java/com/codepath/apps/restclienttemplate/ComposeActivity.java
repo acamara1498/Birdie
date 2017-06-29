@@ -1,11 +1,17 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -16,48 +22,57 @@ import org.parceler.Parcels;
 
 import cz.msebera.android.httpclient.Header;
 
-import static com.codepath.apps.restclienttemplate.TimelineActivity.RESULT_CODE;
-
 
 public class ComposeActivity extends AppCompatActivity {
     BirdieClient client;
     EditText etCompose;
+    TextView tvCharCount;
+    Button btnBeep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(android.R.style.Theme_DeviceDefault_Light_NoActionBar);
         setContentView(R.layout.activity_compose);
+
         etCompose = (EditText) findViewById(R.id.etCompose);
+        tvCharCount = (TextView) findViewById(R.id.tvCharCount);
+        etCompose.addTextChangedListener(TextEditorWatcher);
+        btnBeep = (Button) findViewById(R.id.btnBeep);
 
-        /*
-        YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.player);
-        final String youTubeKey = getIntent().getStringExtra("youTubeKey");
-        // initialize with API key stored in secrets.xml
-        playerView.initialize(getString(R.string.youtube_api_key), new YouTubePlayer.OnInitializedListener() {
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider,
-                                                YouTubePlayer youTubePlayer, boolean b) {
-                // do any work here to cue video, play video, etc.
-                youTubePlayer.cueVideo(youTubeKey);
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider,
-                                                YouTubeInitializationResult youTubeInitializationResult) {
-                // log the error
-                Log.e("MovieTrailerActivity", "Error initializing YouTube player");
-            }
-        });
-        */
 
     }
+
+    private final TextWatcher TextEditorWatcher = new TextWatcher() {
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            //This sets a textview to the current length
+            tvCharCount.setText(String.valueOf(140-s.length()));
+
+            if (s.length()>140)
+            {
+                tvCharCount.setTextColor(Color.RED);
+                btnBeep.setAlpha(.5f);
+                btnBeep.setBackgroundColor(Color.GRAY);
+                btnBeep.setClickable(false);
+                Toast.makeText(ComposeActivity.this, "Too many chaacters", Toast.LENGTH_LONG).show();;
+            } else {
+                tvCharCount.setTextColor(Color.BLACK);
+                btnBeep.setAlpha(1f);
+                btnBeep.setClickable(true);
+            }
+
+        }
+
+        public void afterTextChanged(Editable s) {
+        }
+    };
 
 
     public void createBeep(View view)
     {
-        // take whats in the etView
-       // holder, asspciate view with tweet
         client = BirdieApp.getRestClient();
 
         client.sendTweet(etCompose.getText().toString(), new JsonHttpResponseHandler()
