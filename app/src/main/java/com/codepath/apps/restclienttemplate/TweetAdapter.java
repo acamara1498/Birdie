@@ -13,6 +13,8 @@ import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 /**
  * Created by acamara on 6/26/17.
  */
@@ -34,6 +36,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View tweetView = inflater.inflate(R.layout.item_tweet, parent, false);
+
 
         ViewHolder viewHolder = new ViewHolder(tweetView);
         return viewHolder;
@@ -64,7 +67,10 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvHandle.setText(tweet.user.screenName);
         holder.tvTimeStamp.setText(tweet.relativeDate);
 
-        Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
+        Glide.with(context)
+                .load(tweet.user.profileImageUrl)
+                .bitmapTransform(new RoundedCornersTransformation(context, 50,0))
+                .into(holder.ivProfileImage);
 
     }
 

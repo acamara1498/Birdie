@@ -90,7 +90,17 @@ public class TimelineActivity extends AppCompatActivity {
             }
         });
 
+
+        /* findViewById(R.id.ibReply).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TimelineActivity.this, BeepDetails.class);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+        */
         populateTime();
+
     }
 
     public void fetchTimelineAsync(int page) {

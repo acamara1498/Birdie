@@ -8,7 +8,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -40,8 +39,6 @@ public class ComposeActivity extends AppCompatActivity {
         tvCharCount = (TextView) findViewById(R.id.tvCharCount);
         etCompose.addTextChangedListener(TextEditorWatcher);
         btnBeep = (Button) findViewById(R.id.btnBeep);
-
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
 
         findViewById(R.id.ibExit).setOnClickListener(new View.OnClickListener() {
