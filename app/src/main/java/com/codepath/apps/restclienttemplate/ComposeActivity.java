@@ -40,6 +40,13 @@ public class ComposeActivity extends AppCompatActivity {
         etCompose.addTextChangedListener(TextEditorWatcher);
         btnBeep = (Button) findViewById(R.id.btnBeep);
 
+        findViewById(R.id.ibExit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
     }
 
@@ -58,7 +65,8 @@ public class ComposeActivity extends AppCompatActivity {
                 btnBeep.setBackgroundColor(Color.GRAY);
                 btnBeep.setClickable(false);
                 Toast.makeText(ComposeActivity.this, "Too many chaacters", Toast.LENGTH_LONG).show();;
-            } else {
+            } else
+            {
                 tvCharCount.setTextColor(Color.BLACK);
                 btnBeep.setAlpha(1f);
                 btnBeep.setClickable(true);
@@ -71,7 +79,7 @@ public class ComposeActivity extends AppCompatActivity {
     };
 
 
-    public void createBeep(View view)
+    public void makeBeep(View view)
     {
         client = BirdieApp.getRestClient();
 
@@ -101,9 +109,4 @@ public class ComposeActivity extends AppCompatActivity {
         });
     }
 
-
-    public void endActivity(View view) {
-
-        finish();
-    }
 }
