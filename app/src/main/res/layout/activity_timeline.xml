@@ -9,7 +9,7 @@
         android:layout_height="110dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
+        android:background="@android:color/white"
         android:minHeight="110dp"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"

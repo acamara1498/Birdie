@@ -10,12 +10,14 @@
 
     <ImageButton
         android:id="@+id/ibExit"
+        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/close"
-        android:background="@android:color/transparent"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        app:srcCompat="@drawable/close" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -39,15 +41,16 @@
     <Button
         android:id="@+id/btnBeep"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_dark"
-        android:onClick="makeBeep"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/etCompose"
+        android:background="@drawable/rounded"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:clickable="true"
+        android:onClick="makeBeep"
         android:text="Beep"
         android:textColor="@android:color/white"
-        android:textSize="14dp"
-        android:layout_below="@+id/etCompose"
-        android:layout_alignParentEnd="true" />
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/tvCharCount"
@@ -60,5 +63,19 @@
         android:gravity="center_vertical"
         android:text="140"
         android:textSize="14dp" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/black"
+        android:minHeight="150dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:titleTextColor="@android:color/black">
+
+    </android.support.v7.widget.Toolbar>
 </RelativeLayout>
 
