@@ -20,9 +20,9 @@
         app:srcCompat="@drawable/close" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/ivProfileCompose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignBottom="@+id/ibExit"
         android:layout_alignParentEnd="true"
         app:srcCompat="@android:color/holo_orange_dark" />

@@ -54,9 +54,9 @@ public class TimelineActivity extends AppCompatActivity {
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
 
-        this.context = this;
 
         ibProfile = (ImageButton) findViewById(R.id.ibProfile);
+        this.context = this;
 
 
         client = BirdieApp.getRestClient();
@@ -138,6 +138,20 @@ public class TimelineActivity extends AppCompatActivity {
         // Adds the scroll listener to RecyclerView
         rvTweets.addOnScrollListener(scrollListener);
 
+
+        fetchTimelineAsync(0);
+
+
+        findViewById(R.id.miCompose).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TimelineActivity.this, ComposeActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+
+
     }
         public void loadNextDataFromApi(int offset) {
             // Send an API request to retrieve appropriate paginated data
@@ -170,31 +184,8 @@ public class TimelineActivity extends AppCompatActivity {
             }
         });
 
-//            ));
 
-            //  --> Send the request including an offset value (i.e `page`) as a query parameter.
-            //  --> Deserialize and construct new model objects from the API response
-            //  --> Append the new data objects to the existing set of items inside the array of items
-            //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
-//        }
 
-//        public void loadNextDataFromApi(int offset) {
-            // Send an API request to retrieve appropriate paginated data
-            //  --> Send the request including an offset value (i.e `page`) as a query parameter.
-            //  --> Deserialize and construct new model objects from the API response
-            //  --> Append the new data objects to the existing set of items inside the array of items
-            //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
-//        }
-
-        findViewById(R.id.miCompose).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TimelineActivity.this, ComposeActivity.class);
-                startActivityForResult(intent, REQUEST_CODE);
-            }
-        });
-
-//
 //        findViewById(R.id.ibReply).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -202,14 +193,7 @@ public class TimelineActivity extends AppCompatActivity {
 //                startActivityForResult(intent, REQUEST_CODE);
 //            }
 //        });
-//
-//        findViewById(R.id.ibReply).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(TimelineActivity.this, BeepDetails.class);
-//                startActivityForResult(intent, REQUEST_CODE);
-//            }
-//        });
+
 
         populateTime();
 
@@ -277,12 +261,12 @@ public class TimelineActivity extends AppCompatActivity {
         return true;
     }
 
-//    public void onComposeAction(View item) {
-//        //
-//        Intent intent = new Intent (this, ComposeActivity.class);
-//        startActivityForResult(intent, REQUEST_CODE);
-//
-//    }
+    public void onComposeAction(View item) {
+
+        Intent intent = new Intent (this, ComposeActivity.class);
+        startActivityForResult(intent, REQUEST_CODE);
+
+    }
 
 
 

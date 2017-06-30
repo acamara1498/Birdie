@@ -23,8 +23,8 @@ import com.loopj.android.http.RequestParams;
 public class BirdieClient extends OAuthBaseClient {
 	public static final BaseApi REST_API_INSTANCE = TwitterApi.instance(); // Change this
 	public static final String REST_URL = "https://api.twitter.com/1.1"; // Change this, base API URL
-	public static final String REST_CONSUMER_KEY = "ypY9L0VYFS1SPxCdYb2404Pqo";       // Change this
-	public static final String REST_CONSUMER_SECRET = "iHaicWGmcifyf8CjnXFVpLkZG1ArTpnVoWqGyaAwqAB8HkWzZK"; // Change this
+	public static final String REST_CONSUMER_KEY = "LnWVEIWfd5vo23DNHjWwDrBN7";       // Change this
+	public static final String REST_CONSUMER_SECRET = "XMx5NrDMCU1lDfmje4ACT9O0GG2J1MWwHTuDVndFd9wdIDKTOI"; // Change this
 
 	// Landing page to indicate the OAuth flow worked in case Chrome for Android 25+ blocks navigation back to the app.
 	public static final String FALLBACK_URL = "https://codepath.github.io/android-rest-client-template/success.html";
