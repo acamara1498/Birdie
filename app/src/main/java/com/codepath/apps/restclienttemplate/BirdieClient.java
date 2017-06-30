@@ -59,14 +59,14 @@ public class BirdieClient extends OAuthBaseClient {
         client.post(apiUrl, params, handler);
     }
 
-	public void getProfile(long user_id, String screen_name, AsyncHttpResponseHandler handler) {
-		String apiUrl = getApiUrl("users/show.json");
+
+	public void getOwnProfile(AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("account/verify_credentials.json");
 		// Can specify query string params directly or through RequestParams.
 		RequestParams params = new RequestParams();
-		params.put("user_id", user_id);
-		params.put("screen_name", screen_name);
-		client.post(apiUrl, params, handler);
+		client.get(apiUrl, params, handler);
 	}
+
 
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
