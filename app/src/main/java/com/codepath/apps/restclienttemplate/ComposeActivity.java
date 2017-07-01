@@ -52,6 +52,7 @@ public class ComposeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.stay, R.anim.slide_out_up);
             }
         });
 
@@ -141,6 +142,8 @@ public class ComposeActivity extends AppCompatActivity {
                     intent.putExtra("tweet", Parcels.wrap(tweet));
                     setResult(RESULT_OK, intent);
                     finish();
+                    overridePendingTransition(R.anim.stay, R.anim.slide_out_up);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

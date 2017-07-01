@@ -58,6 +58,8 @@
                 android:id="@+id/ibProfile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
                 android:background="@android:color/transparent"
                 app:srcCompat="@android:color/transparent" />
 

@@ -31,7 +31,6 @@ public class Tweet {
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException{
         Tweet tweet = new Tweet();
 
-
         //extract the values from JSON
         tweet.body = jsonObject.getString("text");
         tweet.uid = jsonObject.getLong("id");
