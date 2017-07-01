@@ -57,6 +57,22 @@ public class Tweet {
             e.printStackTrace();
         }
 
+        relativeDate = relativeDate.replaceAll(" ago","");
+        relativeDate = relativeDate.replaceAll(" minutes","m");
+        relativeDate = relativeDate.replaceAll(" minute","m");
+        relativeDate = relativeDate.replaceAll(" hours","h");
+        relativeDate = relativeDate.replaceAll(" hour","h");
+        relativeDate = relativeDate.replaceAll(" seconds","s");
+        relativeDate = relativeDate.replaceAll(" second","s");
+        relativeDate = relativeDate.replaceAll(" days","d");
+        relativeDate = relativeDate.replaceAll(" day","d");
+
+
+
+
+
+
+
         return relativeDate;
     }
 }

@@ -111,7 +111,7 @@ public class ComposeActivity extends AppCompatActivity {
                 btnBeep.setAlpha(.5f);
                 btnBeep.setBackgroundColor(Color.GRAY);
                 btnBeep.setClickable(false);
-                Toast.makeText(ComposeActivity.this, "Too many chaacters", Toast.LENGTH_LONG).show();;
+                Toast.makeText(ComposeActivity.this, "Too many chaacters", Toast.LENGTH_SHORT).show();;
             } else
             {
                 tvCharCount.setTextColor(Color.BLACK);
